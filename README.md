@@ -61,7 +61,7 @@ Add additional notes about how to deploy this on a live system. -->
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [React](https://reactjs.org/) - Javascript library
-- [ChakraUI](https://chakra-ui.com/) - Content Manager
+- [ChakraUI](https://chakra-ui.com/) - CSS framework and UI library
 - [Cloudinary](https://cloudinary.com/) - Content Manager
 
 ## ✍️ Authors <a name = "authors"></a>

@@ -6,9 +6,15 @@ import ConnectWallet from '../modal/ConnectWallet';
 
 import Links from './NavigationLinks';
 import Sidenav from './SideNavigationbar';
+import Signin from '../authbutton/Signin';
+
+import { useSelector } from 'react-redux';
+import { selectedUser } from '../../features/authSlice';
+import Logout from '../authbutton/logout';
 
 const Navbar = () => {
   // const ref = useRef();
+  const user = useSelector(selectedUser);
 
   useEffect(() => {
     // const div = ref.current;
@@ -42,8 +48,9 @@ const Navbar = () => {
         </Link>
       </Center>
       <Links />
-      <Sidenav />
-      <ConnectWallet />
+      <Sidenav user={user} />
+      {user?.id ? <ConnectWallet /> : <Signin />}
+      {user?.id && <Logout />}
     </Flex>
   );
 };

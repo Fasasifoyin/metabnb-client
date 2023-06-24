@@ -18,8 +18,10 @@ import { hamburgerIcon } from '../../assets/images-and-icons';
 import Links from './NavigationLinks';
 import ConnectWallet from '../modal/ConnectWallet';
 import { Copyright } from '../socials/Socials';
+import Signin from '../authbutton/Signin';
+import Logout from '../authbutton/logout';
 
-const Sidenav = () => {
+const Sidenav = ({ user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -41,7 +43,7 @@ const Sidenav = () => {
         onClose={onClose}
       >
         <DrawerOverlay />
-        <DrawerContent bg={`black`}  px={10}>
+        <DrawerContent bg={`black`} px={10}>
           <DrawerCloseButton color={`white`} my={2} />
           <DrawerHeader py={5}>
             <Link as={RouterLink} to={`/`}>
@@ -55,9 +57,14 @@ const Sidenav = () => {
           </DrawerHeader>
           <DrawerBody py={10}>
             <Links isMobile={true} />
-            <Box my={20}>
-              <ConnectWallet isSidenav />
+            <Box mt={20} mb="10px">
+              {user?.id ? <ConnectWallet isSidenav /> : <Signin isSidenav />}
             </Box>
+            {user?.id && (
+            <Box>
+            <Logout isSidenav />
+          </Box>
+            )}
           </DrawerBody>
           <DrawerFooter color={`gray`} justifyContent={`start`}>
             <Copyright isMobile />

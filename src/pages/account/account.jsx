@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
-import './account.scss';
 import Signin from './Signin';
 import Signup from './Signup';
 
